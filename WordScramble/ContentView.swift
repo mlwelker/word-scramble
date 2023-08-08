@@ -17,6 +17,7 @@ struct ContentView: View {
             let fileContents = try String(contentsOf: fileURL)
             print(fileContents)
         }
+        // modified
     }
     
     func loadFile() {
