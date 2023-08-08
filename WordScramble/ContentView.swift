@@ -1,9 +1,3 @@
-//
-//  ContentView.swift
-//  WordScramble
-//
-//  Created by Michael Welker on 2023-08-08.
-//
 
 import SwiftUI
 
@@ -16,6 +10,15 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+    }
+    
+    func loadFile() {
+        if let fileURL = Bundle.main.url(forResource: "some-file", withExtension: "txt") {
+            if let fileContents = try? String(contentsOf: fileURL) {
+                // file is loaded into string
+                print(fileContents)
+            }
+        }
     }
 }
 
