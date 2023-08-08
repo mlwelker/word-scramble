@@ -12,6 +12,13 @@ struct ContentView: View {
         .padding()
     }
     
+    func loadThrowingFile() throws {
+        if let fileURL = Bundle.main.url(forResource: "some-file", withExtension: "txt") {
+            let fileContents = try String(contentsOf: fileURL)
+            print(fileContents)
+        }
+    }
+    
     func loadFile() {
         if let fileURL = Bundle.main.url(forResource: "some-file", withExtension: "txt") {
             if let fileContents = try? String(contentsOf: fileURL) {
@@ -19,6 +26,18 @@ struct ContentView: View {
                 print(fileContents)
             }
         }
+    }
+    
+    func test() {
+        let input = """
+a
+b
+c
+"""
+        let letters = input.components(separatedBy: "\n")
+        let letter = letters.randomElement()
+        
+        let trimmed = letter?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 
